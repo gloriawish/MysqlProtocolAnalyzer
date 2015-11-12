@@ -3,3 +3,5 @@ MysqlProtocolAnalyzer ÊÇÒ»¸ö¶ÔMysqlµÄÍ¨Ñ¶Ð­ÒéµÄ°ü½øÐÐ½âÎöµÄ¿â£¬´¿java±àÐ´£¬ÊäÈëÎ
 ## Ð­Òé½âÎö
 ÄÜ½âÎö¿Í»§¶ËÓëmysql·þÎñ½»»¥µÄËùÓÐ°ü£¬ÀýÈç¿Í»§¶ËÓë·þÎñÆ÷Á¬½ÓµÄÎÕÊÖÐ­ÒéµÄ°ü£¬ËùÓÐCOM_QUERYÀàÐÍµÄÓï¾ä£¬COM_STMT_PREPAREºÍCOM_STMT_EXECUTE£¬»¹ÓÐok°ü£¬ÒÔ¼°resultset°üµÈ¡£
 ÊÇ¸ù¾Ý¹Ù·½µÄhttp://dev.mysql.com/doc/internals/en/text-protocol.htmlÐ­Òé½øÐÐ½âÎöµÄ¡£
+## ×÷Õß½éÉÜ
+×÷ÕßÊÇÒ»ÃûÈí¼þ¹¤³ÌÑ§Éúµ³¡£Ä¿Ç°ÔÚÉÏº£Ä³985¸ßÐ£¾Í¶ÁÑÐ¾¿Éú£¬ÈÈ°®ÐÂ¼¼Êõ£¬ÈÈ°®±à³Ì£¬ÎªÈËÓÄÄ¬£¬ÈÈ°®¿ªÔ´£¬ÑÐ¾¿·½ÏòÓÐ·Ö²¼Ê½Êý¾Ý¿â¡¢¸ßÐÔÄÜÍøÂç±à³Ì¡¢javaÖÐ¼ä¼þ ÓÊÏä:zhujunxxxxx@163.com ²©¿Í: http://blog.csdn.net/zhujunxxxxx 
