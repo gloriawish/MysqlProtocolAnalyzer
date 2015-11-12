@@ -1,0 +1,2 @@
+# MysqlProtocolAnalyzer
+一个对Mysql的通讯协议的包进行解析的库，是一个系统中用java实现的一个独立的模块，纯java编写
