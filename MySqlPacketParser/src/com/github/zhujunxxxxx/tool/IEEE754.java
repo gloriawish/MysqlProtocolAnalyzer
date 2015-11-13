@@ -12,7 +12,7 @@ public class IEEE754 {
 	 * @param list
 	 * @return
 	 */
-	public static double byteToDuble(List<PacketByte> list){
+	public static double byteToDouble(List<PacketByte> list){
 		StringBuilder hex=new StringBuilder();
 		List<PacketByte> little=PacketByteTool.bigEndianToLittleEndian(list);
 		for (int i = 0; i < little.size(); i++) {
@@ -21,9 +21,9 @@ public class IEEE754 {
 		Double value=Double.longBitsToDouble(Long.valueOf(hex.toString(), 16));
 		return value;
 	}
-	public static double byteToDuble(PacketByte[] array){
+	public static double byteToDouble(PacketByte[] array){
 		List<PacketByte> list=Arrays.asList(array);
-		return byteToDuble(list);
+		return byteToDouble(list);
 	}
 	
 	/***

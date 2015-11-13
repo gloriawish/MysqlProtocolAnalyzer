@@ -6,6 +6,8 @@ import java.util.List;
 import com.github.zhujunxxxxx.tool.PacketBuilder;
 import com.github.zhujunxxxxx.tool.PacketByteTool;
 import com.github.zhujunxxxxx.tool.TcpDumpFileHelper;
+import com.github.zhujunxxxxx.type.LengthEncodedInteger;
+import com.github.zhujunxxxxx.type.LengthEncodedString;
 
 public class MySqlExecuteStmtPacket extends MySqlPacket {
 
@@ -44,6 +46,9 @@ public class MySqlExecuteStmtPacket extends MySqlPacket {
 	}
 	public String getStatement() {
 		return statement;
+	}
+	public void setStatement(String statement) {
+		this.statement = statement;
 	}
 	@Override
 	public void resolve() {
@@ -85,20 +90,24 @@ public class MySqlExecuteStmtPacket extends MySqlPacket {
 		
 		new_params_bound_flag=getPacketContent()[index++];
 		
-		//type length=num-param * 2 
-		for (int i = 0; i < num_param; i++) {
-			PacketByte[] type=new PacketByte[2];
-			
-			for (int j = 0; j < type.length; j++) {
-				type[j]=getPacketContent()[index++];
-			}
-			types.add(type);
-		}
 		
+		if(PacketByteTool.ByteToDecimal(new_params_bound_flag)==1){//表示自带参数类型
+			//type  length=num-param * 2
+			for (int i = 0; i < num_param; i++) {
+				PacketByte[] type=new PacketByte[2];
+				
+				for (int j = 0; j < type.length; j++) {
+					type[j]=getPacketContent()[index++];
+				}
+				types.add(type);
+			}
+		}
 		
 		//values
 		for (int i = 0; i < types.size(); i++) {
-			
+			if(updateFromBitMap(NULL_bitmap,i)){
+				throw new RuntimeException("not supprot null_bitmap");
+			}
 			PacketByte[] type=types.get(i);
 			String typeName=type[0].getValue();
 			if(typeName.equals(MYSQL_TYPE_STRING)
@@ -114,11 +123,10 @@ public class MySqlExecuteStmtPacket extends MySqlPacket {
 					||typeName.equals(MYSQL_TYPE_BIT)
 					||typeName.equals(MYSQL_TYPE_DECIMAL)
 					||typeName.equals(MYSQL_TYPE_NEWDECIMAL)){
-				int len=PacketByteTool.ByteToDecimal(getPacketContent()[index++]);
-				PacketByte[] value=new PacketByte[len];
-				for (int j = 0; j < value.length; j++) {
-					value[j]=getPacketContent()[index++];
-				}
+				PacketByte[] length=LengthEncodedInteger.resolveEncodedInteger(getPacketContent(), index);
+				PacketByte[] value=LengthEncodedString.resolveEncodedString(getPacketContent(), index);
+				index+=length.length==1 ? 1 : length.length+1;
+				index+=value.length;
 				values.add(value);
 			}
 			else if(typeName.equals(MYSQL_TYPE_LONGLONG)){
@@ -190,6 +198,18 @@ public class MySqlExecuteStmtPacket extends MySqlPacket {
 			}
 		}
 		
+	}
+	
+	public static boolean updateFromBitMap(PacketByte[] bitmap,int field_index){
+		
+		
+		int byte_pos = field_index / 8;
+		int bit_pos = field_index % 8;
+		int value=PacketByteTool.ByteToInteger(bitmap[byte_pos]);
+		if((value & (1<<bit_pos)) == 1){//为null
+			return true;
+		}
+		return false;
 	}
 	@Override
 	public void init() {

@@ -148,7 +148,12 @@ public class PacketByteTool {
 		}
 		return value;
 	}
-	
+	public static int ByteToInteger(PacketByte pb)
+	{
+		String output=pb.getValue();
+		int decimal=Integer.parseInt(output, 16);
+		return decimal;
+	}
 	/***
 	 * 把16进制的转为10进制
 	 * @param pb

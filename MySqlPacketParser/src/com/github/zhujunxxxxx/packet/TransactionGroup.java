@@ -3,6 +3,7 @@ package com.github.zhujunxxxxx.packet;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class TransactionGroup {
 	private List<MySqlPacket> list;
 	private String logID;
@@ -28,6 +29,9 @@ public class TransactionGroup {
 	public void setNoAffect(boolean noAffect) {
 		this.noAffect = noAffect;
 	}
-	
+	public void addPacket(MySqlPacket packet)
+	{
+		this.list.add(packet);
+	}
 
 }
