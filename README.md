@@ -1,7 +1,9 @@
-# ÏîÄ¿¼ò½é
-MysqlProtocolAnalyzer ÊÇÒ»¸ö¶ÔMysqlµÄÍ¨Ñ¶Ð­ÒéµÄ°ü½øÐÐ½âÎöµÄ¿â£¬´¿java±àÐ´£¬ÊäÈëÎÄ¼þ¿ÉÒÔÊÇÈÎÒâµÄ16½øÖÆµÄÎÄ±¾ÎÄ¼þ£¬µ±È»ÐèÒªÒ»¶¨µÄÔ¤´¦Àí²ÅÄÜÊ¹ÓÃ¡£±¾¿âÊÇÄ¬ÈÏ´¦ÀíµÄÊÇtcpdump²úÉúµÄ16½øÖÆµÄÊý¾ÝÎÄ¼þ
-## Ð­Òé½âÎö
-ÄÜ½âÎö¿Í»§¶ËÓëmysql·þÎñ½»»¥µÄËùÓÐ°ü£¬ÀýÈç¿Í»§¶ËÓë·þÎñÆ÷Á¬½ÓµÄÎÕÊÖÐ­ÒéµÄ°ü£¬ËùÓÐCOM_QUERYÀàÐÍµÄÓï¾ä£¬COM_STMT_PREPAREºÍCOM_STMT_EXECUTE£¬»¹ÓÐok°ü£¬ÒÔ¼°resultset°üµÈ¡£
-ÊÇ¸ù¾Ý¹Ù·½µÄhttp://dev.mysql.com/doc/internals/en/text-protocol.html Ð­Òé½øÐÐ½âÎöµÄ¡£
-## ×÷Õß½éÉÜ
-×÷ÕßÊÇÒ»ÃûÈí¼þ¹¤³ÌÑ§Éúµ³¡£Ä¿Ç°ÔÚÉÏº£Ä³985¸ßÐ£¾Í¶ÁÑÐ¾¿Éú£¬ÈÈ°®ÐÂ¼¼Êõ£¬ÈÈ°®±à³Ì£¬ÎªÈËÓÄÄ¬£¬ÈÈ°®¿ªÔ´£¬ÑÐ¾¿·½ÏòÓÐ·Ö²¼Ê½Êý¾Ý¿â¡¢¸ßÐÔÄÜÍøÂç±à³Ì¡¢javaÖÐ¼ä¼þ ÓÊÏä:zhujunxxxxx@163.com ²©¿Í: http://blog.csdn.net/zhujunxxxxx 
+# é¡¹ç›®ç®€ä»‹
+MysqlProtocolAnalyzer æ˜¯ä¸€ä¸ªå¯¹Mysqlçš„é€šè®¯åè®®çš„åŒ…è¿›è¡Œè§£æžçš„åº“ï¼Œçº¯javaç¼–å†™ï¼Œè¾“å…¥æ–‡ä»¶å¯ä»¥æ˜¯ä»»æ„çš„16è¿›åˆ¶çš„æ–‡æœ¬æ–‡ä»¶ï¼Œå½“ç„¶éœ€è¦ä¸€å®šçš„é¢„å¤„ç†æ‰èƒ½ä½¿ç”¨ã€‚æœ¬åº“æ˜¯é»˜è®¤å¤„ç†çš„æ˜¯tcpdumpäº§ç”Ÿçš„16è¿›åˆ¶çš„æ•°æ®æ–‡ä»¶
+## è¯¦ç»†ä»‹ç»
+http://blog.csdn.net/zhujunxxxxx/article/details/49837335
+## åè®®è§£æž
+èƒ½è§£æžå®¢æˆ·ç«¯ä¸ŽmysqlæœåŠ¡äº¤äº’çš„æ‰€æœ‰åŒ…ï¼Œä¾‹å¦‚å®¢æˆ·ç«¯ä¸ŽæœåŠ¡å™¨è¿žæŽ¥çš„æ¡æ‰‹åè®®çš„åŒ…ï¼Œæ‰€æœ‰COM_QUERYç±»åž‹çš„è¯­å¥ï¼ŒCOM_STMT_PREPAREå’ŒCOM_STMT_EXECUTEï¼Œè¿˜æœ‰okåŒ…ï¼Œä»¥åŠresultsetåŒ…ç­‰ã€‚
+æ˜¯æ ¹æ®å®˜æ–¹çš„http://dev.mysql.com/doc/internals/en/text-protocol.html åè®®è¿›è¡Œè§£æžçš„ã€‚
+## ä½œè€…ä»‹ç»
+ä½œè€…æ˜¯ä¸€åè½¯ä»¶å·¥ç¨‹å­¦ç”Ÿå…šã€‚ç›®å‰åœ¨ä¸Šæµ·æŸ985é«˜æ ¡å°±è¯»ç ”ç©¶ç”Ÿï¼Œçƒ­çˆ±æ–°æŠ€æœ¯ï¼Œçƒ­çˆ±ç¼–ç¨‹ï¼Œä¸ºäººå¹½é»˜ï¼Œçƒ­çˆ±å¼€æºï¼Œç ”ç©¶æ–¹å‘æœ‰åˆ†å¸ƒå¼æ•°æ®åº“ã€é«˜æ€§èƒ½ç½‘ç»œç¼–ç¨‹ã€javaä¸­é—´ä»¶ é‚®ç®±:zhujunxxxxx@163.com åšå®¢: http://blog.csdn.net/zhujunxxxxx 
